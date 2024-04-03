@@ -1,3 +1,10 @@
 import { serveStatic } from "@hono/node-server/serve-static";
 
-serveStatic({ root: "./build/client" })
+const config = { root: "./build/client" };
+// ✅ no error
+serveStatic(config);
+
+// ❌ Annotator error
+serveStatic({
+    root: "./build/client",
+});
